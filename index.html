@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>I'm Sorry, Divine 💖</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ffd6e8, #ffe6f2, #fff0f6);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #4a004e;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2.6rem;
+        color: #d63384;
+        text-shadow: 0 2px 10px rgba(255, 192, 203, 0.8);
+        animation: fadeInDown 2s ease;
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .letter {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 4px 30px rgba(255, 182, 193, 0.4);
+        max-width: 600px;
+        text-align: center;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        animation: fadeIn 2.5s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    button {
+        background: #ff69b4;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+    }
+    .popup {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+    .popup-content {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        color: #ff1493;
+        box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+        animation: popIn 0.4s ease;
+    }
+    @keyframes popIn {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    .love-message {
+        display: none;
+        font-size: 1.3rem;
+        color: #d63384;
+        margin-top: 20px;
+        text-align: center;
+        animation: fadeIn 2s ease;
+    }
+</style>
+</head>
+<body>
+    <h1>I'm Sorry, Divine 💖</h1>
+    <div class="letter">
+        <p>My sweetest Divine,</p>
+        <p>I’m truly sorry for letting affection blind me and not seeing what you were going through.  
+        You mean the world to me — your laughter, your strength, your heart — all of it makes my world brighter.  
+        I regret every moment I failed to understand or listen deeply.</p>
+
+        <p>But my love for you has never changed; it only grows stronger.  
+        You are precious to me in every way. I promise to love you better, 
+        to be patient, and to stand by your side until our last breath. 💞</p>
+
+        <p>Forgive me, my love.<br> — Chuks 💌</p>
+
+        <button id="forgiveBtn">Forgive Me 💗</button>
+        <div class="love-message" id="loveMessage">
+            Divine, you’ve forgiven me, and that means everything.  
+            My heart beats for you — forever and always 💖
+            <br><br>
+            🎵 <a href="https://open.spotify.com/track/2Z8WuEywRWYTKe1NybPQEW" 
+               target="_blank" style="color:#d63384;text-decoration:none;font-weight:bold;">
+               Listen to “Dandelions” by Ruth B.
+            </a>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p>Divine, will you forgive Chuks? 💕</p>
+            <button onclick="acceptForgiveness(true)">Yes 💖</button>
+            <button onclick="acceptForgiveness(false)">No 💔</button>
+        </div>
+    </div>
+
+<script>
+    const popup = document.getElementById("popup");
+    const loveMsg = document.getElementById("loveMessage");
+    const forgiveBtn = document.getElementById("forgiveBtn");
+
+    forgiveBtn.addEventListener("click", () => popup.style.display = "flex");
+
+    function acceptForgiveness(answer) {
+        if (answer) {
+            popup.style.display = "none";
+            loveMsg.style.display = "block";
+            playSoftMusic();
+        } else {
+            popup.classList.remove("shake");
+            popup.offsetWidth; // reflow
+            popup.classList.add("shake");
+            alert("I’ll keep asking until you say yes, my precious Divine ❤️");
+        }
+    }
+
+    function playSoftMusic() {
+        // Free soft instrumental from free-music-archive (royalty-free)
+        const audio = new Audio("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Kai_Engel/Idea/Kai_Engel_-_05_-_Your_Gentle_Touch.mp3");
+        audio.volume = 0.4;
+        audio.play();
+    }
+</script>
+</body>
+</html>
